@@ -1,16 +1,29 @@
-# React + Vite
+# SubRosa HR
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Confidential HR advisory and document systems for Nigeria's regulated businesses.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+SubRosa HR delivers discreet, high-calibre HR advisory and compliant document systems built specifically for insurance companies, fintechs, and regulated Nigerian businesses that cannot afford structural gaps.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** - UI Library
+- **Vite** - Build Tool
+- **Tailwind CSS** - Styling
+- **React Hooks** - State Management
 
-## Expanding the Oxlint configuration
+## 📦 Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+# Clone the repository
+git clone https://github.com/SilexsecureTeam/SubRosa-HR.git
+
+# Navigate to project directory
+cd subrosa-hr
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
