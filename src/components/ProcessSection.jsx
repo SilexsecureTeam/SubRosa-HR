@@ -32,7 +32,7 @@ export default function ProcessSection() {
       
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
         
-        {/* First/Larger of the two smaller watermark circles */}
+       
         <div className="absolute w-[420px] h-[420px] sm:w-[560px] sm:h-[560px] lg:w-[700px] lg:h-[700px] rounded-full flex items-center justify-center -top-20 -left-20 sm:-top-32 sm:-left-32 opacity-70">
           <div className="absolute inset-0 rounded-full border-[16px] sm:border-[24px] border-[#C57B85]/10"></div>
           <div className="absolute inset-[20px] sm:inset-[30px] rounded-full border border-[#C57B85]/20"></div>

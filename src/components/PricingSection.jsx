@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import RequestForm from './RequestForm';
 export default function PricingSection() {
+  const [selectedPackage, setSelectedPackage] = useState(null);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   const plans = [
     {
       badge: "Entry",
@@ -74,18 +78,19 @@ export default function PricingSection() {
     }
   ];
 
+  const handleRequest = (planName) => {
+    setSelectedPackage(planName);
+    setIsFormOpen(true);
+  };
+
   return (
     <section id="services" className="relative bg-black text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-16 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto">
-        
-     
         <div className="mb-10 sm:mb-12 lg:mb-16 text-left">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif tracking-tight">
             Choose your <span className="italic font-normal">engagement level</span>
           </h2>
         </div>
-
-      
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-6">
           {plans.map((plan, index) => (
             <div 
@@ -97,7 +102,6 @@ export default function PricingSection() {
               }`}
             >
               <div>
-        
                 <div className={`inline-block border rounded-full px-4 sm:px-6 py-1.5 sm:py-2 text-base sm:text-lg md:text-xl font-semibold mb-4 sm:mb-6 shadow-inner ${
                   plan.highlight 
                     ? 'bg-[#C57B85] border-[#C57B85] text-white' 
@@ -105,12 +109,9 @@ export default function PricingSection() {
                 }`}>
                   {plan.badge}
                 </div>
-
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-[#C57B85] mb-2">
                   {plan.name}
                 </h3>
-
-           
                 <div className="flex items-baseline gap-2 mb-6 sm:mb-8">
                   <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#C57B85] tracking-tight">
                     {plan.price}
@@ -119,8 +120,6 @@ export default function PricingSection() {
                     {plan.period}
                   </span>
                 </div>
-
-                
                 <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                   {plan.features.map((feature, fIndex) => (
                     <li key={fIndex} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-neutral-300 font-normal leading-relaxed">
@@ -130,8 +129,10 @@ export default function PricingSection() {
                   ))}
                 </ul>
               </div>
-
-              <button className="w-full bg-[#C57B85] hover:bg-[#b06a74] text-white font-medium py-3 sm:py-3.5 px-6 rounded-full transition-colors text-xs sm:text-sm shadow-md cursor-pointer">
+              <button 
+                onClick={() => handleRequest(plan.name)}
+                className="w-full bg-[#C57B85] hover:bg-[#b06a74] text-white font-medium py-3 sm:py-3.5 px-6 rounded-full transition-colors text-xs sm:text-sm shadow-md cursor-pointer"
+              >
                 Request Package
               </button>
             </div>
@@ -139,6 +140,12 @@ export default function PricingSection() {
         </div>
 
       </div>
+      <RequestForm 
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+        packageName={selectedPackage}
+        onSuccess={() => console.log('Request sent successfully!')}
+      />
     </section>
   );
 }

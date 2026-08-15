@@ -37,10 +37,7 @@ export default function WhyChooseUs() {
             over the alternatives
           </p>
         </div>
-
-       
         <div className="md:hidden">
-          
           <div className="mb-8">
             <div className="border border-[#C57B85]/50 rounded-2xl p-4 bg-neutral-950/60 mb-4">
               <h3 className="text-[#C57B85] font-semibold text-base">Alternative</h3>
@@ -53,8 +50,6 @@ export default function WhyChooseUs() {
               ))}
             </ul>
           </div>
-
-         
           <div className="mb-8">
             <div className="border border-[#C57B85]/50 rounded-2xl p-4 bg-neutral-950/60 mb-4">
               <h3 className="text-[#C57B85] font-semibold text-base">The limitation</h3>
@@ -67,7 +62,6 @@ export default function WhyChooseUs() {
               ))}
             </ul>
           </div>
-
           <div>
             <div className="border border-[#C57B85] rounded-2xl p-4 bg-[#C57B85] mb-4">
               <h3 className="text-white font-semibold text-base">SubRosa HR advantage</h3>
@@ -83,8 +77,6 @@ export default function WhyChooseUs() {
 
         </div>
         <div className="hidden md:block lg:hidden">
-          
-        
           <div className="mb-8">
             <div className="border border-[#C57B85]/50 rounded-2xl p-5 bg-neutral-950/60 mb-4">
               <h3 className="text-[#C57B85] font-semibold text-lg">Alternative</h3>
@@ -97,8 +89,6 @@ export default function WhyChooseUs() {
               ))}
             </ul>
           </div>
-
-       
           <div className="mb-8">
             <div className="border border-[#C57B85]/50 rounded-2xl p-5 bg-neutral-950/60 mb-4">
               <h3 className="text-[#C57B85] font-semibold text-lg">The limitation</h3>
@@ -111,8 +101,6 @@ export default function WhyChooseUs() {
               ))}
             </ul>
           </div>
-
-        
           <div>
             <div className="border border-[#C57B85] rounded-2xl p-5 bg-[#C57B85] mb-4">
               <h3 className="text-white font-semibold text-lg">SubRosa HR advantage</h3>
@@ -125,9 +113,7 @@ export default function WhyChooseUs() {
               ))}
             </ul>
           </div>
-
         </div>
-
         <div className="hidden lg:block overflow-x-auto">
           <div className="min-w-full">
             <div className="grid grid-cols-12 gap-3 mb-3">
@@ -151,11 +137,9 @@ export default function WhyChooseUs() {
                 <div className="col-span-4 border border-[#C57B85]/50 rounded-2xl p-6 bg-neutral-950/60 text-neutral-300 text-sm leading-relaxed flex items-center min-h-[80px]">
                   {item.limitation}
                 </div>
-
                 <div className="col-span-5 border border-[#C57B85] rounded-2xl p-6 bg-[#C57B85] text-white font-medium text-sm leading-relaxed flex items-center shadow-lg min-h-[80px]">
                   {item.advantage}
                 </div>
-
               </div>
             ))}
 

@@ -74,10 +74,8 @@ export default function ProblemSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/20"></div>
               </div>
-
-              
               <div className="relative z-10 flex flex-col h-full p-6 sm:p-8">
-                {/* Title at the VERY TOP of the card */}
+               
                 <h3 className="text-xl sm:text-2xl font-serif font-semibold text-white leading-snug">
                   {item.title}
                 </h3>

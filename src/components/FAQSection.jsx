@@ -13,7 +13,7 @@ export default function FAQSection() {
     },
     {
       question: "How is SubRosa HR different from hiring a freelance HR person?",
-      answer: "A freelance HR person typically works informally with no written engagement terms, variable quality, and no accountability structure. SubRosa HR engagements are scoped in writing, priced transparently, and delivered to a defined standard. You receive branded, professionally structured documents — not rough drafts. And you are engaging a senior HR strategist, not a generalist."
+      answer: "A freelance HR person typically works informally with no written engagement terms, variable quality, and no accountability structure. SubRosa HR engagements are scoped in writing, priced transparently, and delivered to a defined standard. You receive branded, professionally structured documents not rough drafts. And you are engaging a senior HR strategist, not a generalist."
     },
     {
       question: "Are your documents compliant with current Nigerian law?",
