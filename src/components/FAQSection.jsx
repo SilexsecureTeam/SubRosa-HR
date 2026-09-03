@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
@@ -42,32 +43,35 @@ export default function FAQSection() {
             Questions <span className="italic font-normal">we are often asked</span>
           </h2>
         </div>
+
         <div className="space-y-3">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
               <div key={index} className="flex flex-col">
+               
                 <button
                   onClick={() => toggleFAQ(index)}
                   className={`w-full text-left rounded-2xl p-6 sm:p-7 flex items-center justify-between border transition-all duration-300 cursor-pointer ${
                     isOpen 
-                      ? 'border-[#C57B85] bg-neutral-900/80 shadow-lg shadow-[#C57B85]/10' 
-                      : 'border-neutral-800 bg-neutral-900/40 hover:border-neutral-700 hover:shadow-lg hover:shadow-[#C57B85]/5'
+                      ? 'border-[#C4596A] bg-neutral-900/80 shadow-lg shadow-[#C4596A]/10' 
+                      : 'border-neutral-800 bg-neutral-900/40 hover:border-neutral-700 hover:shadow-lg hover:shadow-[#C4596A]/5'
                   }`}
                   aria-expanded={isOpen}
                 >
                   <span className={`text-base sm:text-lg font-serif font-medium pr-4 transition-all duration-300 ${
                     isOpen 
-                      ? 'text-[#C57B85] drop-shadow-[0_0_15px_rgba(197,123,133,0.3)]' 
-                      : 'text-white hover:text-[#C57B85]'
+                      ? 'text-[#C4596A] drop-shadow-[0_0_15px_rgba(196,89,106,0.3)]' 
+                      : 'text-white hover:text-[#C4596A]'
                   }`}>
                     {faq.question}
                   </span>
+                 
                   <div className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${
                     isOpen 
-                      ? 'border-[#C57B85] text-[#C57B85] shadow-lg shadow-[#C57B85]/20' 
-                      : 'border-neutral-700 text-[#C57B85] hover:border-[#C57B85]'
+                      ? 'border-[#C4596A] text-[#C4596A] shadow-lg shadow-[#C4596A]/20' 
+                      : 'border-neutral-700 text-[#C4596A] hover:border-[#C4596A]'
                   }`}>
                     {isOpen ? (
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,14 +84,15 @@ export default function FAQSection() {
                     )}
                   </div>
                 </button>
+
+             
                 {isOpen && (
-                  <div className="mt-3 rounded-2xl p-6 sm:p-8 bg-neutral-900/50 border border-neutral-800 shadow-inner shadow-[#C57B85]/5">
+                  <div className="mt-3 rounded-2xl p-6 sm:p-8 bg-neutral-900/50 border border-neutral-800 shadow-inner shadow-[#C4596A]/5">
                     <p className="text-neutral-200 text-sm sm:text-base font-light leading-relaxed drop-shadow-[0_0_10px_rgba(255,255,255,0.05)]">
                       {faq.answer}
                     </p>
                   </div>
                 )}
-
               </div>
             );
           })}

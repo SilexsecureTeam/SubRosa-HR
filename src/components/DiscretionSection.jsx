@@ -1,4 +1,5 @@
 import React from 'react';
+
 export default function DiscretionSection() {
   const features = [
     {
@@ -20,51 +21,62 @@ export default function DiscretionSection() {
   ];
 
   return (
-    <section id="discretion" className="relative bg-black text-white py-24 px-6 sm:px-10 lg:px-16 overflow-hidden min-h-screen flex items-center">
+    <section id="discretion" className="relative text-white py-24 px-6 sm:px-10 lg:px-16 overflow-hidden min-h-[1611px] flex flex-col items-center justify-center">
 
+   
       <div className="absolute inset-0 z-0">
         <img 
           src="/images/images 1.png" 
           alt="Background" 
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
-      <div className="w-full max-w-4xl mx-auto relative z-10 flex flex-col gap-6">
-        <div className="bg-neutral-900/70 backdrop-blur-md border border-neutral-800 rounded-3xl p-8 sm:p-10 shadow-xl shadow-[#C57B85]/5">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center p-0.5 shadow-lg shadow-[#C57B85]/20">
-              <div className="w-full h-full rounded-full border border-[#C57B85]"></div>
-            </div>
-            <div className="text-white font-bold text-lg tracking-wide flex items-center gap-1">
-              SubRosa <span className="text-[10px] uppercase font-bold text-[#C57B85] self-start mt-0.5">HR</span>
-            </div>
-          </div>
-          
-          <p className="text-neutral-300 text-base sm:text-lg font-medium leading-relaxed max-w-3xl">
-            The name says it. Sub rosa <span className="italic font-bold text-white drop-shadow-[0_0_8px_rgba(197,123,133,0.3)]">"under the rose"</span> has meant confidentiality since Roman times. It is the principle we operate by.
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0">
+        <img 
+          src="/images/Subrosa Logo.png" 
+          alt="SubRosa HR Logo" 
+          className="w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] opacity-10 object-contain"
+        />
+      </div>
+
+      <div className="w-full max-w-[1264px] mx-auto relative z-10 flex flex-col items-center gap-[40px]">
+        
+        
+        <div className="relative bg-[#00000033] backdrop-blur-[18.32px] border border-neutral-800/80 rounded-[20px] overflow-hidden shadow-2xl w-full max-w-[1264px] h-[320px] flex flex-col justify-between p-8 sm:p-10">
+          <img 
+            src="/images/Subrosa Logo.png" 
+            alt="SubRosa HR Logo" 
+            style={{ width: '372.23px', height: '112.53px', padding: '8.66px', gap: '8.66px' }}
+            className="object-contain object-left"
+          />
+
+          <p className="text-white text-lg sm:text-xl md:text-2xl font-normal leading-relaxed max-w-3xl">
+            The name says it. Sub rosa <span className="italic">"under the rose"</span> has meant confidentiality since Roman times. It is the principle we operate by.
           </p>
         </div>
-        <div className="bg-neutral-900/70 backdrop-blur-md border border-neutral-800 rounded-3xl p-8 sm:p-12 shadow-xl shadow-[#C57B85]/5">
+
+        <div className="bg-[#00000033] backdrop-blur-[18.32px] border border-neutral-800/80 rounded-[20px] p-8 sm:p-12 shadow-2xl w-full max-w-[1264px]">
           
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-10">
             {features.map((item, index) => (
-              <div key={index} className="flex flex-col gap-2">
-                <h3 className="text-[#C57B85] font-serif font-bold text-lg sm:text-xl drop-shadow-[0_0_10px_rgba(197,123,133,0.3)]">
+              <div key={index} className="flex flex-col gap-3">
+                <h3 className="text-[#C4596A] font-bold text-xl sm:text-2xl md:text-[26px] font-['Manrope']">
                   {item.title}
                 </h3>
-                <p className="text-neutral-300 text-sm sm:text-base font-medium leading-relaxed max-w-3xl">
+                <p className="text-white text-base sm:text-lg md:text-xl font-normal leading-relaxed font-['Manrope']">
                   {item.description}
                 </p>
               </div>
             ))}
           </div>
+          
           <div className="mt-16 pt-10 border-t border-neutral-800 text-left">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#C57B85] mb-2 tracking-tight drop-shadow-[0_0_15px_rgba(197,123,133,0.3)]">
+            <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-medium leading-tight text-[#C4596A] mb-2 font-['Lora']">
               Built on discretion.
             </h2>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif italic font-bold text-white tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+            <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-normal italic leading-tight text-white font-['Lora']">
               Delivered with authority.
             </h2>
           </div>

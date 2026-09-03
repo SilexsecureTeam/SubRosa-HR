@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import RequestForm from './RequestForm';
+
 export default function PricingSection() {
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -97,23 +98,23 @@ export default function PricingSection() {
               key={index}
               className={`relative rounded-3xl p-6 sm:p-8 flex flex-col border transition-all duration-300 bg-neutral-950/80 backdrop-blur-sm ${
                 plan.highlight 
-                  ? 'border-[#C57B85] shadow-2xl shadow-[#C57B85]/10 sm:scale-105 lg:scale-105' 
+                  ? 'border-[#C4596A] shadow-2xl shadow-[#C4596A]/10 sm:scale-105 lg:scale-105' 
                   : 'border-neutral-800 hover:border-neutral-700'
               }`}
             >
               <div>
                 <div className={`inline-block border rounded-full px-4 sm:px-6 py-1.5 sm:py-2 text-base sm:text-lg md:text-xl font-semibold mb-4 sm:mb-6 shadow-inner ${
                   plan.highlight 
-                    ? 'bg-[#C57B85] border-[#C57B85] text-white' 
+                    ? 'bg-[#C4596A] border-[#C4596A] text-white' 
                     : 'bg-white border-white text-black'
                 }`}>
                   {plan.badge}
                 </div>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-[#C57B85] mb-2">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-[#C4596A] mb-2">
                   {plan.name}
                 </h3>
                 <div className="flex items-baseline gap-2 mb-6 sm:mb-8">
-                  <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#C57B85] tracking-tight">
+                  <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#C4596A] tracking-tight">
                     {plan.price}
                   </span>
                   <span className="text-[10px] sm:text-xs lg:text-sm text-neutral-400 font-light">
@@ -123,7 +124,7 @@ export default function PricingSection() {
                 <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                   {plan.features.map((feature, fIndex) => (
                     <li key={fIndex} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-neutral-300 font-normal leading-relaxed">
-                      <span className="text-[#C57B85] mt-1 text-[8px] sm:text-xs">●</span>
+                      <span className="text-[#C4596A] mt-1 text-[8px] sm:text-xs">●</span>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -131,7 +132,7 @@ export default function PricingSection() {
               </div>
               <button 
                 onClick={() => handleRequest(plan.name)}
-                className="w-full bg-[#C57B85] hover:bg-[#b06a74] text-white font-medium py-3 sm:py-3.5 px-6 rounded-full transition-colors text-xs sm:text-sm shadow-md cursor-pointer"
+                className="w-full bg-[#C4596A] hover:bg-[#b06a74] text-white font-medium py-3 sm:py-3.5 px-6 rounded-full transition-colors text-xs sm:text-sm shadow-md cursor-pointer"
               >
                 Request Package
               </button>
@@ -149,3 +150,4 @@ export default function PricingSection() {
     </section>
   );
 }
+

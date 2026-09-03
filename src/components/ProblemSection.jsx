@@ -49,7 +49,7 @@ export default function ProblemSection() {
       <div className="w-full max-w-7xl mx-auto">
       
         <div className="mb-14">
-          <p className="text-[#C57B85] uppercase tracking-wider text-xs sm:text-sm font-semibold mb-3">
+          <p className="text-[#C4596A] uppercase tracking-wider text-xs sm:text-sm font-semibold mb-3">
             The problem
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif tracking-tight mb-4">
@@ -59,6 +59,7 @@ export default function ProblemSection() {
             Without an HR system, every growth milestone exposes a new risk. SubRosa HR closes them before they become problems.
           </p>
         </div>
+
         <div className="grid grid-cols-1 gap-6 md:hidden">
           {problems.map((item, index) => (
             <div 
@@ -66,20 +67,23 @@ export default function ProblemSection() {
               className="relative group rounded-2xl overflow-hidden border border-neutral-800 flex flex-col shadow-2xl transition-all duration-300 hover:border-[#C57B85]"
               style={{ height: '320px' }}
             >
-              <div className="absolute inset-0 z-0 bg-neutral-900">
+              <div className="absolute inset-0 z-0">
                 <img 
                   src={item.image} 
                   alt={item.title} 
-                  className="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/20"></div>
               </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40"></div>
               <div className="relative z-10 flex flex-col h-full p-6">
-                <h3 className="text-xl font-serif font-semibold text-white leading-snug">
+                
+                <h3 className="text-xl font-serif font-semibold text-white leading-snug mb-2">
                   {item.title}
                 </h3>
+              
                 <div className="flex-1"></div>
-                <p className="text-neutral-300 text-sm leading-relaxed font-light">
+             
+                <p className="text-neutral-200 text-sm leading-relaxed font-light">
                   {item.description}
                 </p>
               </div>
@@ -94,26 +98,31 @@ export default function ProblemSection() {
               className="relative group rounded-2xl overflow-hidden border border-neutral-800 flex flex-col shadow-2xl transition-all duration-300 hover:border-[#C57B85]"
               style={{ height: '420px' }}
             >
-              <div className="absolute inset-0 z-0 bg-neutral-900">
+              <div className="absolute inset-0 z-0">
                 <img 
                   src={item.image} 
                   alt={item.title} 
-                  className="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/20"></div>
               </div>
+            
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40"></div>
               <div className="relative z-10 flex flex-col h-full p-6 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-serif font-semibold text-white leading-snug">
+               
+                <h3 className="text-xl sm:text-2xl font-serif font-semibold text-white leading-snug mb-3">
                   {item.title}
                 </h3>
+               
                 <div className="flex-1"></div>
-                <p className="text-neutral-300 text-sm sm:text-base leading-relaxed font-light">
+                
+                <p className="text-neutral-200 text-sm sm:text-base leading-relaxed font-light">
                   {item.description}
                 </p>
               </div>
             </div>
           ))}
         </div>
+        
         <div className="hidden md:flex justify-end gap-3 mt-8">
           <button 
             onClick={handlePrev}
