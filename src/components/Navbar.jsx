@@ -5,12 +5,36 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  const sectionIds = ['home', 'services', 'difference', 'faq'];
 
   React.useEffect(() => {
+    const DETECT_LINE = 200; 
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      if (window.scrollY < 100) {
+        setActiveSection('home');
+        return;
+      }
+
+      let current = 'home';
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= DETECT_LINE && rect.bottom > DETECT_LINE) {
+          current = id;
+          break;
+        }
+      }
+      setActiveSection(current);
     };
+
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -42,25 +66,12 @@ export default function Navbar() {
     setIsFormOpen(true);
   };
 
-  const [activeSection, setActiveSection] = useState('home');
-
-  React.useEffect(() => {
-    const sections = ['home', 'services', 'difference', 'faq'];
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id || 'home');
-        }
-      });
-    }, { threshold: 0.3 });
-
-    sections.forEach(id => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'services', label: 'Services' },
+    { id: 'difference', label: 'Difference' },
+    { id: 'faq', label: 'FAQ' }
+  ];
 
   return (
     <>
@@ -72,24 +83,23 @@ export default function Navbar() {
             isScrolled ? 'bg-black/60' : ''
           }`}
           style={{
-            width: '600.63px',
-            height: '83.78px',
-            padding: '18.53px',
-            gap: '14.83px',
+            width: '520px',
+            height: '76px',
+            padding: '14px',
+            gap: '8px',
             borderRadius: '74.14px',
             opacity: 1
           }}
         >
-        
+         
           <button 
             onClick={(e) => handleSmoothScroll(e, '#home')}
             className="flex items-center shrink-0 group cursor-pointer"
-            aria-label="Go to home"
             style={{
-              width: '172.84px',
-              height: '52.25px',
-              padding: '4.02px',
-              gap: '4.02px',
+              width: '150px',
+              height: '48px',
+              padding: '2px',
+              gap: '2px',
               opacity: 1
             }}
           >
@@ -100,59 +110,32 @@ export default function Navbar() {
             />
           </button>
 
-          <div className="hidden md:flex items-center gap-1 ml-auto">
+          <div className="hidden md:flex items-center gap-0.5 ml-1">
             <nav className="flex items-center gap-0">
-              <button
-                onClick={(e) => handleSmoothScroll(e, '#home')}
-                className={`px-1.5 lg:px-2 py-1 text-xs lg:text-sm font-semibold transition-all duration-300 rounded-full whitespace-nowrap cursor-pointer ${
-                  activeSection === 'home'
-                    ? 'text-white bg-[#C4596A]/20'
-                    : 'text-neutral-400 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                Home
-              </button>
-              <button
-                onClick={(e) => handleSmoothScroll(e, '#services')}
-                className={`px-1.5 lg:px-2 py-1 text-xs lg:text-sm font-semibold transition-all duration-300 rounded-full whitespace-nowrap cursor-pointer ${
-                  activeSection === 'services'
-                    ? 'text-white bg-[#C4596A]/20'
-                    : 'text-neutral-400 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                Services
-              </button>
-              <button
-                onClick={(e) => handleSmoothScroll(e, '#difference')}
-                className={`px-1.5 lg:px-2 py-1 text-xs lg:text-sm font-semibold transition-all duration-300 rounded-full whitespace-nowrap cursor-pointer ${
-                  activeSection === 'difference'
-                    ? 'text-white bg-[#C4596A]/20'
-                    : 'text-neutral-400 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                Difference
-              </button>
-              <button
-                onClick={(e) => handleSmoothScroll(e, '#faq')}
-                className={`px-1.5 lg:px-2 py-1 text-xs lg:text-sm font-semibold transition-all duration-300 rounded-full whitespace-nowrap cursor-pointer ${
-                  activeSection === 'faq'
-                    ? 'text-white bg-[#C4596A]/20'
-                    : 'text-neutral-400 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                FAQ
-              </button>
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={(e) => handleSmoothScroll(e, `#${item.id}`)}
+                  className={`px-2 py-1 text-xs font-semibold transition-all duration-300 rounded-full whitespace-nowrap cursor-pointer ${
+                    activeSection === item.id
+                      ? 'text-white bg-[#C4596A]/30 hover:bg-[#C4596A]/40'
+                      : 'text-neutral-500 hover:text-white hover:bg-[#C4596A]/30'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
             </nav>
 
             <button
               onClick={handleContactClick}
-              className="shrink-0 text-neutral-900 bg-neutral-200 hover:bg-[#C4596A] hover:text-white text-xs lg:text-sm font-semibold transition-all duration-300 whitespace-nowrap rounded-full px-2.5 lg:px-3 py-1 cursor-pointer shadow-lg hover:shadow-[#C4596A]/30 transform hover:scale-105"
+              className="shrink-0 text-neutral-900 bg-neutral-200 hover:bg-[#C4596A] hover:text-white text-xs font-semibold transition-all duration-300 whitespace-nowrap rounded-full px-3 py-1 cursor-pointer shadow-lg hover:shadow-[#C4596A]/30 transform hover:scale-105 ml-0.5"
             >
               Get Started
             </button>
           </div>
 
-        
+         
           <div className="flex items-center md:hidden ml-auto">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -174,41 +157,22 @@ export default function Navbar() {
             </button>
           </div>
 
-  
+          
           {isOpen && (
             <div className="absolute top-[calc(100%+10px)] left-0 right-0 bg-neutral-950/98 backdrop-blur-2xl border border-neutral-800 rounded-2xl p-4 flex flex-col gap-1 md:hidden shadow-2xl z-50">
-              <button
-                onClick={(e) => handleSmoothScroll(e, '#home')}
-                className={`text-neutral-300 hover:text-white text-sm font-semibold py-2.5 px-3 rounded-xl hover:bg-neutral-900 transition-colors duration-200 text-left ${
-                  activeSection === 'home' ? 'bg-neutral-900 text-[#C4596A]' : ''
-                }`}
-              >
-                Home
-              </button>
-              <button
-                onClick={(e) => handleSmoothScroll(e, '#services')}
-                className={`text-neutral-300 hover:text-white text-sm font-semibold py-2.5 px-3 rounded-xl hover:bg-neutral-900 transition-colors duration-200 text-left ${
-                  activeSection === 'services' ? 'bg-neutral-900 text-[#C4596A]' : ''
-                }`}
-              >
-                Services
-              </button>
-              <button
-                onClick={(e) => handleSmoothScroll(e, '#difference')}
-                className={`text-neutral-300 hover:text-white text-sm font-semibold py-2.5 px-3 rounded-xl hover:bg-neutral-900 transition-colors duration-200 text-left ${
-                  activeSection === 'difference' ? 'bg-neutral-900 text-[#C4596A]' : ''
-                }`}
-              >
-                Difference
-              </button>
-              <button
-                onClick={(e) => handleSmoothScroll(e, '#faq')}
-                className={`text-neutral-300 hover:text-white text-sm font-semibold py-2.5 px-3 rounded-xl hover:bg-neutral-900 transition-colors duration-200 text-left ${
-                  activeSection === 'faq' ? 'bg-neutral-900 text-[#C4596A]' : ''
-                }`}
-              >
-                FAQ
-              </button>
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={(e) => handleSmoothScroll(e, `#${item.id}`)}
+                  className={`text-sm font-semibold py-2.5 px-3 rounded-xl transition-colors duration-200 text-left ${
+                    activeSection === item.id
+                      ? 'bg-neutral-900 text-[#C4596A]'
+                      : 'text-neutral-500 hover:text-[#C4596A] hover:bg-neutral-900'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
               <button
                 onClick={handleContactClick}
                 className="mt-2 text-neutral-900 bg-neutral-200 hover:bg-[#C4596A] hover:text-white text-sm font-semibold py-2.5 px-3 rounded-xl transition-all duration-300 text-center cursor-pointer transform hover:scale-105"

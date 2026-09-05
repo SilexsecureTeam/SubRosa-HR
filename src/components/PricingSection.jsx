@@ -96,35 +96,35 @@ export default function PricingSection() {
           {plans.map((plan, index) => (
             <div 
               key={index}
-              className={`relative rounded-3xl p-6 sm:p-8 flex flex-col border transition-all duration-300 bg-neutral-950/80 backdrop-blur-sm ${
+              className={`relative rounded-3xl p-6 sm:p-8 flex flex-col border transition-all duration-300 bg-neutral-950/80 backdrop-blur-sm cursor-pointer group ${
                 plan.highlight 
-                  ? 'border-[#C4596A] shadow-2xl shadow-[#C4596A]/10 sm:scale-105 lg:scale-105' 
-                  : 'border-neutral-800 hover:border-neutral-700'
+                  ? 'border-[#C4596A] shadow-2xl shadow-[#C4596A]/10 sm:scale-105 lg:scale-105 hover:shadow-[#C4596A]/20' 
+                  : 'border-neutral-800 hover:border-[#C4596A] hover:shadow-lg hover:shadow-[#C4596A]/5'
               }`}
             >
               <div>
-                <div className={`inline-block border rounded-full px-4 sm:px-6 py-1.5 sm:py-2 text-base sm:text-lg md:text-xl font-semibold mb-4 sm:mb-6 shadow-inner ${
+                <div className={`inline-block border rounded-full px-4 sm:px-6 py-1.5 sm:py-2 text-base sm:text-lg md:text-xl font-semibold mb-4 sm:mb-6 shadow-inner transition-all duration-300 ${
                   plan.highlight 
-                    ? 'bg-[#C4596A] border-[#C4596A] text-white' 
-                    : 'bg-white border-white text-black'
+                    ? 'bg-[#C4596A] border-[#C4596A] text-white group-hover:bg-white group-hover:text-[#C4596A] group-hover:border-white' 
+                    : 'bg-white border-white text-black group-hover:bg-[#C4596A] group-hover:text-white group-hover:border-[#C4596A]'
                 }`}>
                   {plan.badge}
                 </div>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-[#C4596A] mb-2">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-[#C4596A] mb-2 transition-colors duration-300 group-hover:text-white">
                   {plan.name}
                 </h3>
                 <div className="flex items-baseline gap-2 mb-6 sm:mb-8">
-                  <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#C4596A] tracking-tight">
+                  <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#C4596A] tracking-tight transition-colors duration-300 group-hover:text-white">
                     {plan.price}
                   </span>
-                  <span className="text-[10px] sm:text-xs lg:text-sm text-neutral-400 font-light">
+                  <span className="text-[10px] sm:text-xs lg:text-sm text-neutral-400 font-light transition-colors duration-300 group-hover:text-neutral-300">
                     {plan.period}
                   </span>
                 </div>
                 <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                   {plan.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-neutral-300 font-normal leading-relaxed">
-                      <span className="text-[#C4596A] mt-1 text-[8px] sm:text-xs">●</span>
+                    <li key={fIndex} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-neutral-300 font-normal leading-relaxed transition-colors duration-300 group-hover:text-neutral-200">
+                      <span className="text-[#C4596A] mt-1 text-[8px] sm:text-xs transition-colors duration-300 group-hover:text-white">●</span>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -132,7 +132,7 @@ export default function PricingSection() {
               </div>
               <button 
                 onClick={() => handleRequest(plan.name)}
-                className="w-full bg-[#C4596A] hover:bg-[#b06a74] text-white font-medium py-3 sm:py-3.5 px-6 rounded-full transition-colors text-xs sm:text-sm shadow-md cursor-pointer"
+                className="w-full bg-[#C4596A] hover:bg-white text-white hover:text-black font-medium py-3 sm:py-3.5 px-6 rounded-full transition-all duration-300 text-xs sm:text-sm shadow-md cursor-pointer"
               >
                 Request Package
               </button>
@@ -150,4 +150,3 @@ export default function PricingSection() {
     </section>
   );
 }
-

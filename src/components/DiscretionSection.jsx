@@ -21,9 +21,9 @@ export default function DiscretionSection() {
   ];
 
   return (
-    <section id="discretion" className="relative text-white py-24 px-6 sm:px-10 lg:px-16 overflow-hidden min-h-[1611px] flex flex-col items-center justify-center">
+    <section id="discretion" className="relative text-white py-16 sm:py-20 lg:py-24 px-6 sm:px-10 lg:px-16 overflow-hidden flex flex-col items-center justify-center">
 
-   
+      
       <div className="absolute inset-0 z-0">
         <img 
           src="/images/images 1.png" 
@@ -33,6 +33,7 @@ export default function DiscretionSection() {
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
+
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0">
         <img 
           src="/images/Subrosa Logo.png" 
@@ -41,42 +42,43 @@ export default function DiscretionSection() {
         />
       </div>
 
-      <div className="w-full max-w-[1264px] mx-auto relative z-10 flex flex-col items-center gap-[40px]">
+      <div className="w-full max-w-[1264px] mx-auto relative z-10 flex flex-col items-center gap-8">
         
-        
-        <div className="relative bg-[#00000033] backdrop-blur-[18.32px] border border-neutral-800/80 rounded-[20px] overflow-hidden shadow-2xl w-full max-w-[1264px] h-[320px] flex flex-col justify-between p-8 sm:p-10">
+    
+        <div className="relative bg-[#00000033] backdrop-blur-[18.32px] border border-neutral-800/80 rounded-[20px] overflow-hidden shadow-2xl w-full max-w-[1264px] h-[280px] flex flex-col justify-between p-6 sm:p-8">
           <img 
             src="/images/Subrosa Logo.png" 
             alt="SubRosa HR Logo" 
-            style={{ width: '372.23px', height: '112.53px', padding: '8.66px', gap: '8.66px' }}
+            style={{ width: '300px', height: '90px', padding: '8.66px', gap: '8.66px' }}
             className="object-contain object-left"
           />
 
-          <p className="text-white text-lg sm:text-xl md:text-2xl font-normal leading-relaxed max-w-3xl">
+          <p className="text-white text-base sm:text-lg md:text-xl font-normal leading-relaxed max-w-3xl">
             The name says it. Sub rosa <span className="italic">"under the rose"</span> has meant confidentiality since Roman times. It is the principle we operate by.
           </p>
         </div>
 
-        <div className="bg-[#00000033] backdrop-blur-[18.32px] border border-neutral-800/80 rounded-[20px] p-8 sm:p-12 shadow-2xl w-full max-w-[1264px]">
+        
+        <div className="bg-[#00000033] backdrop-blur-[18.32px] border border-neutral-800/80 rounded-[20px] p-6 sm:p-10 shadow-2xl w-full max-w-[1264px]">
           
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-8">
             {features.map((item, index) => (
-              <div key={index} className="flex flex-col gap-3">
-                <h3 className="text-[#C4596A] font-bold text-xl sm:text-2xl md:text-[26px] font-['Manrope']">
+              <div key={index} className="flex flex-col gap-2">
+                <h3 className="text-[#C4596A] font-bold text-lg sm:text-xl md:text-2xl font-['Manrope']">
                   {item.title}
                 </h3>
-                <p className="text-white text-base sm:text-lg md:text-xl font-normal leading-relaxed font-['Manrope']">
+                <p className="text-white text-sm sm:text-base md:text-lg font-normal leading-relaxed font-['Manrope']">
                   {item.description}
                 </p>
               </div>
             ))}
           </div>
           
-          <div className="mt-16 pt-10 border-t border-neutral-800 text-left">
-            <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-medium leading-tight text-[#C4596A] mb-2 font-['Lora']">
+          <div className="mt-12 pt-8 border-t border-neutral-800 text-left">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium leading-tight text-[#C4596A] mb-2 font-['Lora']">
               Built on discretion.
             </h2>
-            <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-normal italic leading-tight text-white font-['Lora']">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal italic leading-tight text-white font-['Lora']">
               Delivered with authority.
             </h2>
           </div>

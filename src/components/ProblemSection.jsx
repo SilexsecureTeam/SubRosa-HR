@@ -60,11 +60,12 @@ export default function ProblemSection() {
           </p>
         </div>
 
+       
         <div className="grid grid-cols-1 gap-6 md:hidden">
           {problems.map((item, index) => (
             <div 
               key={index}
-              className="relative group rounded-2xl overflow-hidden border border-neutral-800 flex flex-col shadow-2xl transition-all duration-300 hover:border-[#C57B85]"
+              className="relative group rounded-2xl overflow-hidden border border-neutral-800 flex flex-col shadow-2xl transition-all duration-300 hover:border-[#C4596A]"
               style={{ height: '320px' }}
             >
               <div className="absolute inset-0 z-0">
@@ -76,13 +77,10 @@ export default function ProblemSection() {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40"></div>
               <div className="relative z-10 flex flex-col h-full p-6">
-                
                 <h3 className="text-xl font-serif font-semibold text-white leading-snug mb-2">
                   {item.title}
                 </h3>
-              
                 <div className="flex-1"></div>
-             
                 <p className="text-neutral-200 text-sm leading-relaxed font-light">
                   {item.description}
                 </p>
@@ -95,7 +93,7 @@ export default function ProblemSection() {
           {getVisibleProblems().map((item, index) => (
             <div 
               key={index}
-              className="relative group rounded-2xl overflow-hidden border border-neutral-800 flex flex-col shadow-2xl transition-all duration-300 hover:border-[#C57B85]"
+              className="relative group rounded-2xl overflow-hidden border border-neutral-800 flex flex-col shadow-2xl transition-all duration-300 hover:border-[#C4596A]"
               style={{ height: '420px' }}
             >
               <div className="absolute inset-0 z-0">
@@ -105,16 +103,12 @@ export default function ProblemSection() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-            
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40"></div>
               <div className="relative z-10 flex flex-col h-full p-6 sm:p-8">
-               
                 <h3 className="text-xl sm:text-2xl font-serif font-semibold text-white leading-snug mb-3">
                   {item.title}
                 </h3>
-               
                 <div className="flex-1"></div>
-                
                 <p className="text-neutral-200 text-sm sm:text-base leading-relaxed font-light">
                   {item.description}
                 </p>
@@ -123,10 +117,11 @@ export default function ProblemSection() {
           ))}
         </div>
         
+  
         <div className="hidden md:flex justify-end gap-3 mt-8">
           <button 
             onClick={handlePrev}
-            className="w-10 h-10 rounded-full border border-[#C57B85] flex items-center justify-center text-[#C57B85] hover:bg-[#C57B85]/10 transition-colors cursor-pointer" 
+            className="w-10 h-10 rounded-full border border-[#C4596A] flex items-center justify-center text-[#C4596A] hover:bg-[#C4596A]/10 transition-colors cursor-pointer" 
             aria-label="Previous slide"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,7 +130,7 @@ export default function ProblemSection() {
           </button>
           <button 
             onClick={handleNext}
-            className="w-10 h-10 rounded-full border border-[#C57B85] flex items-center justify-center text-[#C57B85] hover:bg-[#C57B85]/10 transition-colors cursor-pointer" 
+            className="w-10 h-10 rounded-full border border-[#C4596A] flex items-center justify-center text-[#C4596A] hover:bg-[#C4596A]/10 transition-colors cursor-pointer" 
             aria-label="Next slide"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,21 +143,21 @@ export default function ProblemSection() {
           <button 
             onClick={() => setCurrentIndex(0)}
             className={`h-1.5 rounded-full transition-all duration-300 ${
-              currentIndex === 0 ? 'w-8 bg-[#C57B85]' : 'w-3 bg-neutral-700'
+              currentIndex === 0 ? 'w-8 bg-[#C4596A]' : 'w-3 bg-neutral-700 hover:bg-[#C4596A]/50'
             }`}
             aria-label="Show problems 1, 2, 3"
           />
           <button 
             onClick={() => setCurrentIndex(1)}
             className={`h-1.5 rounded-full transition-all duration-300 ${
-              currentIndex === 1 ? 'w-8 bg-[#C57B85]' : 'w-3 bg-neutral-700'
+              currentIndex === 1 ? 'w-8 bg-[#C4596A]' : 'w-3 bg-neutral-700 hover:bg-[#C4596A]/50'
             }`}
             aria-label="Show problems 2, 3, 4"
           />
           <button 
             onClick={() => setCurrentIndex(2)}
             className={`h-1.5 rounded-full transition-all duration-300 ${
-              currentIndex === 2 ? 'w-8 bg-[#C57B85]' : 'w-3 bg-neutral-700'
+              currentIndex === 2 ? 'w-8 bg-[#C4596A]' : 'w-3 bg-neutral-700 hover:bg-[#C4596A]/50'
             }`}
             aria-label="Show problems 1, 2, 4"
           />
